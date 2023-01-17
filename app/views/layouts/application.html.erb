@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+  <%# 全てのページでの共通表示　ここから下に貼り付ける %>
+  <header>
+  <div class="header-logo">
+  <%# Railsのコード記載へ変更 %>
+    <%# <a href="/">TweetApp</a> %>
+    <%= link_to("TweetApp","/") %>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <%# <a href="/about">TweetAppとは</a> %>
+      <%= link_to("TweetAppとは","/about")%>
+    </li>
+    <li>
+    <%= link_to("投稿一覧","/posts/index")%>
+    </li>
+    <li>
+    <%= link_to("新規投稿","/posts/new") %>
+    </li>
+    <li>
+    <%= link_to("ユーザー一覧","/users/index") %>
+    </li>
+    <li>
+    <%= link_to("新規登録","/signup/") %>
+    </li>
+  </ul>
+</header>
+<!-- flash[:notice]に代入されたメッセージを表示してください -->
+    <% if flash[:notice]%>
+      <div class="flash">
+        <%= flash[:notice]%>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<%# 変数へ代入 %>
+      <%# <% post1 = "今日からProgateでRailsの勉強するよー!" %>
+      <%# <% post2 = "投稿一覧ページ作成中！" %> 
+<%# 配列を組むことで1つ1つを変数に代入する手間を省く
+    配列はアクション内で定義することが一般的なのでそちらへ記載%>
+ <%# <% posts =[ %>
+    <%# "今日からProgateでRailsの勉強するよー！", %>
+    <%# "投稿一覧ページ作成中" ] %>
+
+ <%# %> 
+
+
+<div class="main posts-index">
+  <div class="container">
+  <h1 class="users-heading">投稿一覧</h1>
+  <%# eachは配置に注意 %>
+  <%  @posts.each do |post| %>
+    <div class="posts-index-item">
+      <%# ブラウザ表示 クリックでshow画面へジャンプ %>
+      <%= link_to(post.content,"/posts/#{post.id}") %>
+      </div>
+      <%# 終了箇所注意しないと反映がおかしくなる %>
+      <% end %>
+    </div>
+  </div>
+</div>
